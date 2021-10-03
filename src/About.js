@@ -45,14 +45,17 @@ export default function About() {
         <div>
             <TitleBox>About Me</TitleBox>
             <AboutWrapper>
-                <AboutParagraph>Hi everyone what’s up blah blah blah blah blah 
-                    blah blah blah blah blah blah blah blah blah blah blah blah 
-                    blah blah blah blah blah blah blah blah blah blah blah blah 
-                    blah blah blah blah blah blah blah blah blah blah blah blah 
-                    blah blah blah blah blah blah blah blah blah blah blah blah 
-                    blah blah blah blah blah blah blah blah blah blah blah blah 
-                    blah blah blah blah blah blah blah blah blah blah blah blah 
-                    blah blah blah blah blah blah blah blah blah  </AboutParagraph>
+                <AboutParagraph>
+                    Hi everyone, my name is Mina! I am a junior studying
+                    Cognitive Science and Data Science at UC Berkeley. Within the field
+                    of cognitive science I have developed an interest in studying 
+                    the processes of the mind at a computational level. With this interest
+                    I have enjoyed learning programming skills through various classes and projects,
+                    and I am excited to utilize my skills to develop solutions to real world problems!
+                    As for a little more about me personally, I grew up in Seattle (go Seahawks!), 
+                    I love playing tennis, watching soccr, baking, going swimming, and hanging with
+                    friends!  
+                </AboutParagraph>
             </AboutWrapper>
             <Divider></Divider>
         </div>
