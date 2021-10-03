@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import axios from 'axios';
 
 const TitleBox = styled.button`
 display: inline-block;
@@ -52,36 +53,69 @@ color: black;
 `;
 
 export default function Projects() {
+    
+    const [projects, setProjects] = React.useState(null);
+    async function fetData() {
+        const res = await axios.get(
+            'https://api.airtable.com/v0/applJFGJT8IZqbaYR/projects',
+            {
+                headers: {
+                    authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
+                },
+            }
+        );
+        console.log(res.data);
+        setProjects(res.data.records);
+    }
+
+    React.useEffect(() => {
+        fetData();
+    }, []);
+    if(!projects) {
+        return <div>Loading...</div>;
+    }
+    
     return (
         <div>
             <div>
                 <TitleBox>Projects</TitleBox>
                 <div>
-                <ProjectsDiv>
-                    <ProjectsParagraph>
-                        <ProjectsTitle>Title</ProjectsTitle>
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                    </ProjectsParagraph>
-                </ProjectsDiv>
-                <ProjectsDiv>
-                    <ProjectsParagraph>
-                        <ProjectsTitle>Title</ProjectsTitle>
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                        hello hello hello hello hello hello
-                    </ProjectsParagraph>
-                </ProjectsDiv>
+                    {projects.map((record) => (
+                        <ProjectsDiv>
+                            <ProjectsParagraph>
+                                <ProjectsTitle>{record.fields.Title}</ProjectsTitle>
+                                {record.fields.Description}
+                            </ProjectsParagraph>
+                        </ProjectsDiv>
+                    ))
+                    }
                 </div>
+                {/* <div>
+                <ProjectsDiv>
+                    <ProjectsParagraph>
+                        <ProjectsTitle>Title</ProjectsTitle>
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                    </ProjectsParagraph>
+                </ProjectsDiv>
+                <ProjectsDiv>
+                    <ProjectsParagraph>
+                        <ProjectsTitle>Title</ProjectsTitle>
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                        hello hello hello hello hello hello
+                    </ProjectsParagraph>
+                </ProjectsDiv>
+                </div> */}
                 <Divider></Divider>
             </div>
         </div>

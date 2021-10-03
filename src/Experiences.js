@@ -84,7 +84,6 @@ export default function Experiences() {
 
     const [experiences, setExperiences] = React.useState(null);
     async function fetData() {
-        console.log(process.env.REACT_APP_API_KEY)
         const res = await axios.get(
             'https://api.airtable.com/v0/applJFGJT8IZqbaYR/experiences',
             {
