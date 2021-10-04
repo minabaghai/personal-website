@@ -30,7 +30,7 @@ const Divider = styled.section`
 `;
 
 const AboutParagraph = styled.p`
-font-size: 25px;
+font-size: 30px;
 font-family:'Lato', sans-serif;
 text-align: left;
 line-height: 30px;
@@ -53,7 +53,7 @@ export default function About() {
                     I have enjoyed learning programming skills through various classes and projects,
                     and I am excited to utilize my skills to develop solutions to real world problems!
                     As for a little more about me personally, I grew up in Seattle (go Seahawks!), 
-                    I love playing tennis, watching soccr, baking, going swimming, and hanging with
+                    I love playing tennis, watching soccer, baking, going swimming, and hanging with
                     friends!  
                 </AboutParagraph>
             </AboutWrapper>
